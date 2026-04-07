@@ -128,3 +128,4 @@ This project was built to demonstrate a complete AI/ML pipeline using only
 the Python standard library and Flask. The NLP engine inside app.py contains
 over 300 curated lexicon entries, a negation handling system, and an emotion
 profiling layer — all implemented as clean, readable Python classes.
+# Sentiment-Analyzer
