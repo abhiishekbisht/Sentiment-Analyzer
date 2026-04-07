@@ -130,3 +130,4 @@ over 300 curated lexicon entries, a negation handling system, and an emotion
 profiling layer — all implemented as clean, readable Python classes.
 # Sentiment-Analyzer
 # Sentiment-Analyzer
+# Sentiment-Analyzer
