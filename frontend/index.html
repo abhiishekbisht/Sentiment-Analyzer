@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Intelligence Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+<body>
+<div class="shell">
+
+  <header>
+    <div class="logo-block">
+      <p class="eyebrow">AI / ML Project &mdash; Python NLP</p>
+      <h1>Sentiment <em>Intelligence</em> Engine</h1>
+    </div>
+    <span class="version-tag">v1.0 &mdash; real-time</span>
+  </header>
+
+  <div class="grid">
+
+    <!-- INPUT PANEL -->
+    <div class="card col-full">
+      <p class="card-label">Input &mdash; text to analyse</p>
+      <div class="input-wrap">
+        <textarea id="textInput" placeholder="Type or paste any text here. Try a product review, a tweet, a news excerpt, or your own sentence..."></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runAnalysis()">Analyse</button>
+        <button class="btn-demo" onclick="loadDemo()">Load demo</button>
+        <button class="btn-secondary" onclick="clearAll()">Clear</button>
+        <div class="loading" id="loadingIndicator">
+          <div class="spinner"></div> Processing...
+        </div>
+      </div>
+    </div>
+
+    <!-- VERDICT + SCORES -->
+    <div class="card" id="verdictCard">
+      <p class="card-label">Verdict</p>
+      <div class="empty" id="verdictEmpty">Run an analysis to see results.</div>
+      <div id="verdictContent" style="display:none">
+        <div class="verdict" id="verdictBadge">
+          <span class="verdict-dot" id="verdictDot"></span>
+          <span class="verdict-label" id="verdictLabel"></span>
+          <span class="verdict-conf" id="verdictConf"></span>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:6px;">Compound score</p>
+        <div class="bar-track"><div class="bar-fill" id="compoundBar"></div></div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-label">Positive weight</div>
+            <div class="stat-val" id="posScore" style="color:var(--accent)"></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Negative weight</div>
+            <div class="stat-val" id="negScore" style="color:var(--accent2)"></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Subjectivity</div>
+            <div class="stat-val" id="subjectivity"></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Objectivity</div>
+            <div class="stat-val" id="objectivity"></div>
+          </div>
+        </div>
+        <div class="meta-row">
+          <span id="wordCount"></span>
+          <span id="sentCount"></span>
+          <span id="gradeLevel"></span>
+          <span id="procTime"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMOTION PROFILE -->
+    <div class="card" id="emotionCard">
+      <p class="card-label">Emotion profile</p>
+      <div class="empty" id="emotionEmpty">Emotion breakdown will appear here.</div>
+      <div id="emotionContent" style="display:none"></div>
+    </div>
+
+    <!-- KEYWORD SIGNALS -->
+    <div class="card col-full" id="keywordCard">
+      <p class="card-label">Detected signal words</p>
+      <div class="empty" id="keywordEmpty">Key sentiment words will be highlighted here.</div>
+      <div id="keywordContent" style="display:none">
+        <p style="font-size:12px;color:var(--muted);margin-bottom:6px;">Positive signals</p>
+        <div class="tag-row" id="posWords"></div>
+        <p style="font-size:12px;color:var(--muted);margin:0.75rem 0 6px;">Negative signals</p>
+        <div class="tag-row" id="negWords"></div>
+        <p style="font-size:12px;color:var(--muted);margin:0.75rem 0 6px;">Top words in text</p>
+        <div class="wc-grid" id="topWords"></div>
+      </div>
+    </div>
+
+    <!-- SENTENCE BREAKDOWN -->
+    <div class="card col-full" id="sentenceCard">
+      <p class="card-label">Sentence-level breakdown</p>
+      <div class="empty" id="sentenceEmpty">Individual sentence scores will appear here.</div>
+      <div id="sentenceContent" style="display:none"></div>
+    </div>
+
+    <!-- SESSION HISTORY -->
+    <div class="card col-full" id="historyCard">
+      <p class="card-label">Session analytics</p>
+      <div class="empty" id="historyEmpty">Your analysis history will appear here.</div>
+      <div id="historyContent" style="display:none">
+        <div class="hist-row" id="histStats"></div>
+        <div style="margin-top:0.75rem;display:flex;flex-wrap:wrap;gap:4px;" id="trendDots"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/frontend/script.js"></script>
+</body>
+</html>

@@ -2,12 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/app.py"
+      "destination": "/api/index"
     }
-  ],
-  "functions": {
-    "app.py": {
-      "runtime": "vercel-python@0.1.0"
-    }
-  }
+  ]
 }
